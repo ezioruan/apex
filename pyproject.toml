@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "fastapi-apex"
 version = "0.1.0"
-description = "Apex: A robust FastAPI framework and scaffolding tool for rapid application development. Apex provides out-of-the-box setup for databases and implements best practices to get your FastAPI applications up and running quickly and efficiently. Start building powerful, modern web applications with Apex today."
+description = "fastapi-apex: A robust FastAPI framework and scaffolding tool for rapid application development. Apex provides out-of-the-box setup for databases and implements best practices to get your FastAPI applications up and running quickly and efficiently. Start building powerful, modern web applications with Apex today."
 authors = ["Ezio Ruan <ezioruan@example.com>"]
 readme = "README.md"
 packages = [{include = "fastapi-apex"}]
