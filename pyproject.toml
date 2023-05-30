@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "apex"
 version = "0.1.0"
-description = ""
+description = "Apex: A robust FastAPI framework and scaffolding tool for rapid application development. Apex provides out-of-the-box setup for databases and implements best practices to get your FastAPI applications up and running quickly and efficiently. Start building powerful, modern web applications with Apex today.""
 authors = ["Ezio Ruan <ezioruan@example.com>"]
 readme = "README.md"
 packages = [{include = "apex"}]
@@ -19,6 +19,7 @@ pydantic = {extras = ["dotenv", "email"], version = "^1.10.7"}
 orjson = "^3.8.11"
 python-jose = "^3.3.0"
 python-multipart = "^0.0.6"
+mkdocs = "^1.4.3"
 
 
 [build-system]
