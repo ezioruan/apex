@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    command: bash -c "poetry run pytest --cov=apex_fastapi --cov-report term --cov-report xml:coverage.xml tests/"
+    environment:
+      DATABASE_URL: "mysql://root:test@db:3306/test"
+    depends_on:
+      - dbmate
+
+  dbmate:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    environment:
+      DATABASE_URL: "mysql://root:test@db:3306/test"
+      DBMATE_MIGRATIONS_DIR: "/db/migrations"
+    command: migrate
+    depends_on:
+      db:
+          condition: service_healthy
+
+  db:
+    image: mysql:8.0.30
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "test"
+      MYSQL_DATABASE: "test"
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 5s
+      retries: 10

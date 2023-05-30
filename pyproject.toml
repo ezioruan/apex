@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "apex"
+version = "0.1.0"
+description = ""
+authors = ["Ezio Ruan <ezioruan@example.com>"]
+readme = "README.md"
+packages = [{include = "apex"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.95.1"
+pytest = "^7.3.1"
+flake8 = "^6.0.0"
+flake8-bugbear = "^23.3.23"
+pre-commit = "^3.2.2"
+uvicorn = "^0.22.0"
+tortoise-orm = {extras = ["asyncmy"], version = "^0.19.3"}
+pydantic = {extras = ["dotenv", "email"], version = "^1.10.7"}
+orjson = "^3.8.11"
+python-jose = "^3.3.0"
+python-multipart = "^0.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.isort]
+profile = 'black'
+lines_between_types = 1
+combine_as_imports = true
+known_third_party = ["fastapi", "pydantic", "starlette"]
+
+[tool.poetry.scripts]
+dev = "app.dev:start"
+shell = "app.cli:shell"
